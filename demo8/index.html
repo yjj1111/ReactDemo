@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+ class LinkeButton extends React.Component{
+     constructor(props) {
+         super(props)
+         this.state={
+             liked:false
+         },
+         this.handleClick=this.handleClick.bind(this)
+     };
+     handleClick(){
+         this.setState({
+             liked:!this.state.liked
+         },function(){
+             console.log("this.state.liked="+this.state.liked)
+         })
+     };
+     render(){
+        var text = this.state.liked ? 'like' : 'haven\'t liked';
+         return(
+        <p onClick={this.handleClick}>
+            You {text} this. Click to toggle.
+            </p>
+         )
+     }
+ }
+ ReactDOM.render(
+     <LinkeButton/>
+     ,document.getElementById('root')
+ )
+</script>
+</body>
+
+</html>

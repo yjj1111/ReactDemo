@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+   class MyCompoent extends React.Component{
+       constructor(props) {
+           super(props)
+           this.myTextInput=React.createRef();//创建ref节点
+           this.handleClick=this.handleClick.bind(this);
+       }
+       handleClick(){
+           this.myTextInput.current.focus();//获取焦点
+       }
+       handleClicks(){
+        this.myTextInput.current.focus();//获取焦点
+       }
+       handleClickh(){
+        this.myTextInput.current.focus();//获取焦点
+       }
+       handleClickhs=()=>{
+        this.myTextInput.current.focus();//获取焦点
+       }
+       render(){
+           return(
+               <div>
+                <input type="text" ref={this.myTextInput} />
+                <input type="button" value="Focus the text input" onClick={this.handleClick} />
+                <br/>
+                <input type="button" value="Focus the text input" onClick={this.handleClicks.bind(this)} />
+                <br/>
+                <input type="button" value="Focus the text input" onClick={()=>this.handleClickh()} />
+                <br/>
+                <input type="button" value="Focus the text input" onClick={this.handleClickhs()} />
+               </div>
+           )
+       }
+   }
+
+   ReactDOM.render(
+       <MyCompoent/>,
+       document.getElementById('root')
+   )
+   </script>
+
+</body>
+
+</html>

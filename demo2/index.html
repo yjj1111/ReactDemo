@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        var names = ['Alice', 'Emily', 'Kate'];
+        const result = names.map((item, index) => {
+            return <div key={index}>Hello,{item}!</div>
+        })
+        ReactDOM.render(
+            <div>
+                {
+                    names.map((item, index) => {
+                        return <div key={index}>Hello,{item}!</div>
+                    })
+                }
+                <hr />
+                {result}
+            </div>,
+            document.getElementById('root')
+        )
+    </script>
+
+</body>
+
+</html>
